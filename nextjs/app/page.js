@@ -1,9 +1,11 @@
 // import useState from react, which is a hook that allows us to add state to functional components
 // Key concepts: components, props -- property, state -- updating, hooks, event handling
-import {useState} from 'react';
+
+// Import the LikeButton client component
+import LikeButton from "./like-button";
 
 function Header({ title }) {
-    return <h1>{title ? title : "React"}</h1>;
+    return <h1>{title ? title : "React Tutorial"}</h1>;
 }
 
 // Define a default export for our component, the entry point of our app
@@ -14,12 +16,6 @@ function HomePage() {
     //We can also use React.useState() 
     //to create a state variable and a function to update it 
     //likes is the state variable and setLikes is the function to update it (array destructuring)
-    const [likes, setLikes] = useState(0);
-
-    // Define our customized event handling function
-    function handleClick() {
-        setLikes(likes + 1);
-    }
 
     return (
         <div>
@@ -29,7 +25,7 @@ function HomePage() {
                     <li key={name}>{name}</li>
                 ))}
             </ul>
-            <button onClick={handleClick}>Like({likes})</button>
+            <LikeButton />
         </div>
     );
 }
